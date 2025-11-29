@@ -1,0 +1,7 @@
+Reglas ip tables:
+
+sudo iptables -I INPUT -j NFQUEUE --queue-num 0       // Paquetes entrantes los enviamos a la cola NFQUE 
+sudo iptables -I OUTPUT -j NFQUEUE --queue-num 0      // Paquetes salientes los enviamos a la cola NFQUE
+sudo iptables -I FORWARD -j NFQUEUE --queue-num 0     // Paquetes redirigidos los enviamos a la cola NFQUE
+sudo iptables --policy FORWARD ACCEPT                 // Aceptamos los paquetes entrates y los dirigimos a su destino legitimo 
+
